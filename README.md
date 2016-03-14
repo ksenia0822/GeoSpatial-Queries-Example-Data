@@ -1,9 +1,7 @@
 # GeoSpatial-Queries-Example-Data
 
-### Seed Instructions
+Download two example datasets: geoData-1.js and geoData-2.js. These contain the collections neighborhoods and restaurants respectively. After downloading the datasets, import them into the database:
 
-Download two example datasets. These contain the collections restaurants and neighborhoods respectively. After downloading the datasets, import them into the database:
+mongoimport <path to geoData-1.js> -c neighborhoods
 
-mongoimport <path to restaurants.json> -c restaurants
-
-mongoimport <path to neighborhoods.json> -c neighborhoods
+mongoimport <path to geoData-2.js> -c restaurants
