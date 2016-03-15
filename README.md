@@ -38,18 +38,31 @@ This query will return the following:
 <code>
 { 
 	"_id" : ObjectId("..."),
+
 	"geometry" : {
+
 		"coordinates" : [
+
 			[ ...
+
 				[
+
 	            -74.01244109278849,
+
 	            40.71905767270331
+
 				],
+
 			]
+
 		]
+
 		"type" : "MultiPolygon",
+
 	},
+
 	"name" : "Battery Park City-Lower Manhattan"
+	
 }
 </code>
 
@@ -57,9 +70,13 @@ This query will return the following:
 
 <code>
 var neighborhood = db.neighborhoods.findOne({ 
+
 	geometry: { $geoIntersects: 
+
 				{ $geometry: { type: "Point", 
+
 								coordinates: [ -74.013972, 40.705781 ] 
+
 							} 
 				} 
 	} 
@@ -68,9 +85,13 @@ var neighborhood = db.neighborhoods.findOne({
 
 <code>
 db.restaurants.find({ 
+
 	location: { 
+
 		$geoWithin: { 
+
 			$geometry: neighborhood.geometry 
+
 		} 
 	} 
 }).count()
@@ -86,18 +107,27 @@ to return results in unsorted order, or nearSphere with $maxDistance if you need
 
 <code>
 db.restaurants.find({ 
+
 	location:{ 
+
 		$geoWithin: { 
+
 			$centerSphere: [ [ -74.013972, 40.705781 ], 50 ] } } })
 </code>
 
 <code>
 db.restaurants.find({ 
+
 	location: { 
+
 		$nearSphere: { 
+
 			$geometry: { 
+
 				type: "Point", coordinates: [ -74.013972, 40.705781 ] 
+
 			}, 
+
 			$maxDistance: 500 } } })
 </code>
 
