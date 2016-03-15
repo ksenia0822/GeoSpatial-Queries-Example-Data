@@ -15,6 +15,7 @@ db.neighborhoods.createIndex({ coordinates: "2dsphere" })
 
 #### Find the Current Neighborhood
 
+<code>
 db.neighborhoods.findOne({ 
 	geometry: { $geoIntersects: 
 				{ $geometry: { type: "Point", 
@@ -23,6 +24,7 @@ db.neighborhoods.findOne({
 				} 
 	} 
 })
+</code>
 
 
 This query will return the following: 
