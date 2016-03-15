@@ -13,9 +13,12 @@ mongoimport <path to geoData-2.js> -c restaurants
 
 ##### 2. Create a 2dsphere index on each collection using the mongo shell:
 
+
+<code>
 db.restaurants.createIndex({ location: "2dsphere" })
 
 db.neighborhoods.createIndex({ coordinates: "2dsphere" })
+</code>
 
 ##### 3. Example
 
