@@ -11,6 +11,7 @@ db.neighborhoods.findOne({
 	} 
 })
 
+db.restaurants.findOne()
 // This query will return the following: 
 { 
 	"_id" : ObjectId("..."),
