@@ -16,7 +16,6 @@ mongoimport <path to geoData-2.js> -c restaurants
 
 <code>
 db.restaurants.createIndex({ location: "2dsphere" })
-
 db.neighborhoods.createIndex({ coordinates: "2dsphere" })
 </code>
 
